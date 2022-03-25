@@ -8,7 +8,7 @@
           <li>
               About
           </li>
-          <li v-if="auth.isAuthenticated">
+          <li v-if="isAuthenticated">
               {{todos.length}}
 
               <button @click="TOGGLE_AUTH">Logout</button>
@@ -20,12 +20,12 @@
 
 <script>
 
-import {mapState, mapMutations} from 'vuex'
+import { mapMutations,  mapGetters} from 'vuex'
 
 export default {
     // eslint-disable-next-line vue/multi-word-component-names
     name: 'Navbar',
-    computed: mapState(['todos', 'auth']),
+    computed: mapGetters(['isAuthenticated', 'todos']),
     methods:mapMutations(['TOGGLE_AUTH'])
     
 }
